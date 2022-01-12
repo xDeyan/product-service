@@ -78,7 +78,7 @@ public class ProductFacadeImpl implements ProductFacade {
 
   @Override
   public void update(Long id, @Valid ProductModificationDto product) {
-    productValidator.validateProductExists(id);
+    productValidator.validateProductModification(id, product);
     var entity = productRepository.findById(id).get();
     productMapper.updateEntity(entity, product);
   }

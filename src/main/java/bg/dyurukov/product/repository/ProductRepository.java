@@ -24,4 +24,6 @@ public interface ProductRepository
   @Lock(LockModeType.PESSIMISTIC_WRITE)
   @QueryHints({@QueryHint(name = "javax.persistence.query.timeout", value = "1000")})
   Optional<Product> findById(Long id);
+
+  boolean existsByNameAndIdNot(String name, Long id);
 }
